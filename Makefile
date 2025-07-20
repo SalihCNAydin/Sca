@@ -3,7 +3,7 @@ CXX = clang++
 
 PLATFORM = $(shell file /bin/ls | cut -d' ' -f3 | cut -d'-' -f1)
 BSD_VERSION = $(shell uname -v 2>&1 | cut -d' ' -f2 | cut -d'.' -f1)
-SVR_VERSION = $(shell cat __REVISION__)
+SVR_VERSION = $(shell [ -f __REVISION__ ] && cat __REVISION__ || echo 0)
 
 .PHONY:  liblua libsql libgame libpoly libthecore game db
 
